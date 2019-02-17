@@ -23,7 +23,11 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import xyz.skynetcloud.cyberx.Main;
 import xyz.skynetcloud.cyberx.blocks.container.ContainerCloudChest;
+import xyz.skynetcloud.cyberx.blocks.container.ContainerDarkSteelChest;
+import xyz.skynetcloud.cyberx.blocks.container.ContainerRubyChest;
 import xyz.skynetcloud.cyberx.blocks.gui.GuiCloudChest;
+import xyz.skynetcloud.cyberx.blocks.gui.GuiDarkSteelChest;
+import xyz.skynetcloud.cyberx.blocks.gui.GuiRubyChest;
 import xyz.skynetcloud.cyberx.init.BlockInit;
 import xyz.skynetcloud.cyberx.init.ItemInit;
 import xyz.skynetcloud.cyberx.init.RecipesInit;
@@ -127,6 +131,8 @@ public class RegistryHandler
 		public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) 
 		{
 			if(ID == Main.CHEST_GUI_ID) return new ContainerCloudChest(player.inventory, (TileEntityCloudChest)world.getTileEntity(new BlockPos(x,y,z)), player);
+			if(ID == Main.DARK_STEEL_GUI_ID) return new ContainerDarkSteelChest(player.inventory, (TileEntityDarkSteelChest)world.getTileEntity(new BlockPos(x,y,z)), player);
+			if(ID == Main.RUBY_CHEST_GUI_ID) return new ContainerRubyChest(player.inventory, (TileEntityRubyChest)world.getTileEntity(new BlockPos(x,y,z)), player);
 			return null;
 		}
 		
@@ -134,7 +140,8 @@ public class RegistryHandler
 		public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) 
 		{
 			if(ID == Main.CHEST_GUI_ID) return new GuiCloudChest(player.inventory, (TileEntityCloudChest)world.getTileEntity(new BlockPos(x,y,z)), player);
-		
+			if(ID == Main.DARK_STEEL_GUI_ID) return new GuiDarkSteelChest(player.inventory, (TileEntityDarkSteelChest)world.getTileEntity(new BlockPos(x,y,z)), player);
+			if(ID == Main.RUBY_CHEST_GUI_ID) return new GuiRubyChest(player.inventory, (TileEntityRubyChest)world.getTileEntity(new BlockPos(x,y,z)), player);
 			return null;
 		}
 	}

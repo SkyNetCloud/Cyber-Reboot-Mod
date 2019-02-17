@@ -70,7 +70,7 @@ public static class RenderingCloudChest extends TileEntitySpecialRenderer<TileEn
 @SideOnly(Side.CLIENT)
 public static class RenderingDarkSteelChest extends TileEntitySpecialRenderer<TileEntityDarkSteelChest>
 {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Main.MODID + ":textures/blocks/cloud_chest_block.png");
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Main.MODID + ":textures/blocks/dark_steel_chest.png");
 	private final DarkSteelChestModel MODEL = new DarkSteelChestModel();
 	
 	@Override
@@ -120,7 +120,7 @@ public static class RenderingDarkSteelChest extends TileEntitySpecialRenderer<Ti
 @SideOnly(Side.CLIENT)
 public static class RenderingRubyChest extends TileEntitySpecialRenderer<TileEntityRubyChest>
 {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Main.MODID + ":textures/blocks/cloud_chest_block.png");
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Main.MODID + ":textures/blocks/ruby_chest.png");
 	private final RubyChestModel MODEL = new RubyChestModel();
 	
 	@Override

@@ -324,7 +324,7 @@ public class DarkSteelChest extends ModdedBlockContainer implements IHasModel {
     {
 		if(!worldIn.isRemote)
 		{
-			playerIn.openGui(Main.instance, Main.CHEST_GUI_ID, worldIn, pos.getX(), pos.getY(), pos.getZ());
+			playerIn.openGui(Main.instance, Main.DARK_STEEL_GUI_ID, worldIn, pos.getX(), pos.getY(), pos.getZ());
 		}
 		
 		return true;

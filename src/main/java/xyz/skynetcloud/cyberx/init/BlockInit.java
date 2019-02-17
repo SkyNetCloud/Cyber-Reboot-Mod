@@ -9,7 +9,9 @@ import xyz.skynetcloud.cyberx.Main;
 import xyz.skynetcloud.cyberx.blocks.BlockBase;
 import xyz.skynetcloud.cyberx.blocks.block.CloudBlock;
 import xyz.skynetcloud.cyberx.blocks.block.CloudChest;
+import xyz.skynetcloud.cyberx.blocks.block.DarkSteelChest;
 import xyz.skynetcloud.cyberx.blocks.block.RubyBlock;
+import xyz.skynetcloud.cyberx.blocks.block.RubyChestBlock;
 import xyz.skynetcloud.cyberx.blocks.block.SteelBlock;
 import xyz.skynetcloud.cyberx.blocks.block.VibraniumBlock;
 import xyz.skynetcloud.cyberx.blocks.ores.RubyOre;
@@ -29,6 +31,7 @@ public class BlockInit
 	//Blocks
 	public static final Block CLOUD_BLOCK = new CloudBlock("cloud_block", Material.IRON, Main.CYBERTAB);
 	public static final Block CLOUD_CHEST = new CloudChest("cloud_chest_block", Material.IRON, Main.CYBERTAB);
+	
 
 
 	
@@ -36,13 +39,14 @@ public class BlockInit
     //Dark Steel
     public static final Block DARK_STEEL_BLOCK = new SteelBlock("dark_steel_block", Material.IRON,Main.CYBERTAB);
     public static final Block DARK_STEEL_ORE = new SteelOre("dark_steel_ore", Material.GROUND, Main.CYBERTAB);
-    
+    public static final Block DARK_STEEL_CHEST = new DarkSteelChest("dark_steel_chest", Material.IRON, Main.CYBERTAB);
 
     
     //Ruby
     public static final Block RUBY_BLOCK = new RubyBlock("ruby_block", Material.IRON, Main.CYBERTAB);
     public static final Block RUBY_ORE = new RubyOre("ruby_ore", Material.GOURD, Main.CYBERTAB);
     public static final Block Nether_RUBY_ORE = new BlockBase("nether_ruby_ore", Material.GOURD, Main.CYBERTAB);
+    public static final Block RUBY_CHEST = new RubyChestBlock("ruby_chest_Block", Material.IRON, Main.CYBERTAB);
     
     //other
     public static final Block DARKBLOCK = new BlockBase("block_dark", Material.GROUND, Main.CYBERTAB);

@@ -13,6 +13,7 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.AxisAlignedBB;
 import xyz.skynetcloud.cyberx.Main;
+import xyz.skynetcloud.cyberx.References;
 import xyz.skynetcloud.cyberx.blocks.container.ContainerCloudChest;
 
 public class TileEntityCloudChest extends TileEntityLockableLoot implements ITickable
@@ -80,7 +81,7 @@ public class TileEntityCloudChest extends TileEntityLockableLoot implements ITic
 	@Override
 	public String getGuiID() 
 	{
-		return Main.MODID + ":cloud_chest_block";
+		return References.MODID + ":cloud_chest_block";
 	}
 	
 	@Override

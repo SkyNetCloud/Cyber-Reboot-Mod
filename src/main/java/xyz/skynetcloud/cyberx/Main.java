@@ -24,7 +24,7 @@ import cofh.CoFHCore;
 import cofh.cofhworld.CoFHWorld;
 import cofh.redstoneflux.RedstoneFluxProps;
 
-@Mod(modid = Main.MODID, name = Main.MODNAME, version = Main.VERSION, dependencies = Main.DEPENDENCIES )
+@Mod(modid = Main.MODID, name = Main.MODNAME, version = Main.VERSION, dependencies = Main.DEPENDENCIES, updateJSON = "https://raw.githubusercontent.com/SkyNetCloud/Cyber-Reboot-Mod/master/update.json" )
 public class Main
 {
 	public static final String MODID = "cx";

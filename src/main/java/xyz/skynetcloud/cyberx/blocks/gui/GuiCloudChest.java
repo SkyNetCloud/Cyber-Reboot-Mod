@@ -6,13 +6,12 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
 import xyz.skynetcloud.cyberx.Main;
-import xyz.skynetcloud.cyberx.References;
 import xyz.skynetcloud.cyberx.blocks.container.ContainerCloudChest;
 import xyz.skynetcloud.cyberx.titles.TileEntityCloudChest;
 
 public class GuiCloudChest extends GuiContainer
 {
-	private static final ResourceLocation GUI_CHEST = new ResourceLocation(References.MODID + ":textures/gui/cloud_chest.png");
+	private static final ResourceLocation GUI_CHEST = new ResourceLocation(Main.MODID + ":textures/gui/cloud_chest.png");
 	private final InventoryPlayer playerInventory;
 	private final TileEntityCloudChest te;
 	

@@ -5,13 +5,13 @@ import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import xyz.skynetcloud.cyberx.References;
+import xyz.skynetcloud.cyberx.Main;
 import xyz.skynetcloud.cyberx.titles.TileEntityCloudChest;
 
 @SideOnly(Side.CLIENT)
 public class RenderingCloudChest extends TileEntitySpecialRenderer<TileEntityCloudChest>
 {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(References.MODID + ":textures/blocks/cloud_chest_block.png");
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Main.MODID + ":textures/blocks/cloud_chest_block.png");
 	private final ModelCloudChest MODEL = new ModelCloudChest();
 	
 	@Override

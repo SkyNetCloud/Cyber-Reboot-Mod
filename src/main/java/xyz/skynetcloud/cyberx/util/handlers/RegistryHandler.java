@@ -33,9 +33,8 @@ import xyz.skynetcloud.cyberx.util.interfaces.IHasModel;
 import xyz.skynetcloud.cyberx.util.other.RenderingCloudChest;
 import xyz.skynetcloud.cyberx.world.generation.WorldGenOres;
 
-
 @EventBusSubscriber
-public class RegistryHandler<ChatComponentText> 
+public class RegistryHandler 
 {
 	
 	 public static Configuration config;
@@ -105,9 +104,8 @@ public class RegistryHandler<ChatComponentText>
         if (config.hasChanged()) {
             config.save();
         }
+		
 	}
-	
-	
 	
 	public static void serverRegistries(FMLServerStartingEvent event)
 	{

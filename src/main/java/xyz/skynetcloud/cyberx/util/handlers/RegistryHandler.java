@@ -28,9 +28,13 @@ import xyz.skynetcloud.cyberx.init.BlockInit;
 import xyz.skynetcloud.cyberx.init.ItemInit;
 import xyz.skynetcloud.cyberx.init.RecipesInit;
 import xyz.skynetcloud.cyberx.titles.TileEntityCloudChest;
+import xyz.skynetcloud.cyberx.titles.TileEntityDarkSteelChest;
+import xyz.skynetcloud.cyberx.titles.TileEntityRubyChest;
 import xyz.skynetcloud.cyberx.util.ModConfig;
 import xyz.skynetcloud.cyberx.util.interfaces.IHasModel;
-import xyz.skynetcloud.cyberx.util.other.RenderingCloudChest;
+import xyz.skynetcloud.cyberx.util.other.RenderChests.RenderingCloudChest;
+import xyz.skynetcloud.cyberx.util.other.RenderChests.RenderingDarkSteelChest;
+import xyz.skynetcloud.cyberx.util.other.RenderChests.RenderingRubyChest;
 import xyz.skynetcloud.cyberx.world.generation.WorldGenOres;
 
 @EventBusSubscriber
@@ -51,6 +55,10 @@ public class RegistryHandler
 		event.getRegistry().registerAll(BlockInit.BLOCKS.toArray(new Block[0]));
 		
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityCloudChest.class, new RenderingCloudChest());
+		
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityRubyChest.class, new RenderingRubyChest());
+		
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDarkSteelChest.class, new RenderingDarkSteelChest()); 
 	}
 	
 	@SubscribeEvent

@@ -1,0 +1,17 @@
+[
+{
+  "modid": "cx",
+  "name": "Cyber Reboot",
+  "description": "A small and fun mod with a lot of cool blocks",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "c",
+  "updateUrl": "",
+  "authorList": ["SkyNetCloud"],
+  "credits": "",
+  "screenshots": [],
+  "dependencies": [
+        "forge,cofhworld,cofhcore,redstoneflux"
+  ]
+}
+]

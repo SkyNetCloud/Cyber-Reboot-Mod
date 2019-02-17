@@ -1,0 +1,9 @@
+{
+    "parent": "block/upper_slab",
+    "textures":
+    {
+        "bottom": "cx:blocks/ruby_ore",
+        "top": "cx:blocks/ruby_ore",
+        "side": "cx:blocks/ruby_ore"
+    }
+}

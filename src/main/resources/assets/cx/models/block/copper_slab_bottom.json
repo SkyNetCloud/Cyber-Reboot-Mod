@@ -1,0 +1,9 @@
+{
+    "parent": "block/half_slab",
+    "textures":
+    {
+        "bottom": "cx:blocks/copper_block",
+        "top": "cx:blocks/copper_block",
+        "side": "cx:blocks/copper_block"
+    }
+}

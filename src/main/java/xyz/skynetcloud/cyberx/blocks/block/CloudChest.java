@@ -32,20 +32,13 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import xyz.skynetcloud.cyberx.Main;
-import xyz.skynetcloud.cyberx.blocks.container.ModdedBlockContainer;
+import xyz.skynetcloud.cyberx.init.ModdedBlockContainer;
 import xyz.skynetcloud.cyberx.titles.TileEntityCloudChest;
 import xyz.skynetcloud.cyberx.util.interfaces.IHasModel;
 
 public class CloudChest extends ModdedBlockContainer implements IHasModel
 {
-	public static final PropertyDirection FACING = BlockHorizontal.FACING;
-    protected static final AxisAlignedBB NORTH_CHEST_AABB = new AxisAlignedBB(0.0625D, 0.0D, 0.0D, 0.9375D, 0.875D, 0.9375D);
-    protected static final AxisAlignedBB SOUTH_CHEST_AABB = new AxisAlignedBB(0.0625D, 0.0D, 0.0625D, 0.9375D, 0.875D, 1.0D);
-    protected static final AxisAlignedBB WEST_CHEST_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0625D, 0.9375D, 0.875D, 0.9375D);
-    protected static final AxisAlignedBB EAST_CHEST_AABB = new AxisAlignedBB(0.0625D, 0.0D, 0.0625D, 1.0D, 0.875D, 0.9375D);
-    protected static final AxisAlignedBB NOT_CONNECTED_AABB = new AxisAlignedBB(0.0625D, 0.0D, 0.0625D, 0.9375D, 0.875D, 0.9375D);
-    
-    
+
 	public CloudChest(String name, Material material, CreativeTabs tab) 
 	{
 		super(name, material, tab); 

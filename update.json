@@ -1,0 +1,12 @@
+{ 
+        "homepage": "cyberreboot.skynetcloud.xyz", 
+        "promos": { 
+                "1.12.2-latest": "1.1",
+                "1.12.2-recommended": "1.0",
+        }, 
+        "1.12.2": {
+                "1.1": "Add New Item and Fix Some Item Crafting ",
+                "1.0": ""
+        }, 
+
+} 

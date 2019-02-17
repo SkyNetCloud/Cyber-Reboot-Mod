@@ -27,7 +27,7 @@ public class BlockInit
    // public static final Block CLOUD_CHEST = new CloudChest("cloud_chest_block", Material.IRON, Main.CYBERTAB);
 
 	//Blocks
-	public static final Block CLOUD_BLOCK = new CloudBlock("cloud_block", Material.SPONGE, Main.CYBERTAB);
+	public static final Block CLOUD_BLOCK = new CloudBlock("cloud_block", Material.IRON, Main.CYBERTAB);
 	public static final Block CLOUD_CHEST = new CloudChest("cloud_chest_block", Material.IRON, Main.CYBERTAB);
 
 

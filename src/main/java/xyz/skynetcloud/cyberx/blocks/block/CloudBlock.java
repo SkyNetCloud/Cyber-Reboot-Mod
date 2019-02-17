@@ -10,7 +10,7 @@ public class CloudBlock extends BlockBase implements IHasModel {
 
 	public CloudBlock(String name, Material material, CreativeTabs tab) {
 		super(name, material, tab);
-		setSoundType(SoundType.SNOW);
+		setSoundType(SoundType.STONE);
 		setHardness(1.0F);
 		setResistance(0.1F);
 		setHarvestLevel("pickaxe", 1);

@@ -21,18 +21,10 @@ import net.minecraftforge.fml.relauncher.Side;
 import xyz.skynetcloud.cyberx.proxy.CommonProxy;
 import xyz.skynetcloud.cyberx.util.handlers.RegistryHandler;
 
-@Mod(modid = Main.MODID, name = Main.MODNAME, version = Main.VERSION, dependencies = Main.DEPENDENCIES , updateJSON = "https://gist.githubusercontent.com/darkhax/486b52eabda471c7a04b1986ba134552/raw/update.json") 
+@Mod(modid = References.MODID, name = References.MODNAME, version = References.VERSION, dependencies = References.DEPENDENCIES , updateJSON = References.MODJSON) 
 public class Main
 {
-	public static final String MODID = "cx";
-	public static final String MODNAME = "Cyber Reboot";
-	public static final String MODVERSION = "1.1";
-	public static final String VERSION = "1.12.2";
-	
-	public static final String DEPENDENCIES  = CoFHCore.VERSION_GROUP + CoFHWorld.VERSION_GROUP + RedstoneFluxProps.VERSION_GROUP;
-	
-	public static final String CLIENT = "xyz.skynetcloud.cyberx.proxy.ClientProxy";
-	public static final String SERVER = "xyz.skynetcloud.cyberx.proxy.CommonProxy";
+
 	
 	public static final int CHEST_GUI_ID = 1;
 	public static final int GUI_ENERGY_STORAGE = 5;
@@ -44,7 +36,7 @@ public class Main
 	
 	public static final CreativeTabs CYBERTAB = new CyberTab("cybertab");
 	
-    @SidedProxy(clientSide = CLIENT, serverSide = SERVER)
+    @SidedProxy(clientSide = References.CLIENT, serverSide = References.SERVER)
     public static CommonProxy proxy;
     
     public static File config;

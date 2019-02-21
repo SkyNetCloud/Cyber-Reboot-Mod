@@ -4,6 +4,8 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockFaceShape;
@@ -17,6 +19,7 @@ import net.minecraft.init.Items;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumBlockRenderType;
@@ -32,22 +35,36 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import xyz.skynetcloud.cyberx.Main;
-import xyz.skynetcloud.cyberx.blocks.BlockBase;
+import xyz.skynetcloud.cyberx.init.BlockInit;
+import xyz.skynetcloud.cyberx.init.ItemInit;
 import xyz.skynetcloud.cyberx.init.TypeInit;
 import xyz.skynetcloud.cyberx.titles.TileEntityChestInit;
 
-public class BlockCyberChest extends BlockBase
+public class BlockCyberChest extends BlockContainer
 {
-    public static final PropertyEnum<TypeInit> VARIANT_PROP = PropertyEnum.create("variant", TypeInit.class);
+
+	public static final PropertyEnum<TypeInit> VARIANT_PROP = PropertyEnum.create("variant", TypeInit.class);
 
     protected static final AxisAlignedBB Chest_AABB = new AxisAlignedBB(0.0625D, 0.0D, 0.0625D, 0.9375D, 0.875D, 0.9375D);
 
-    public BlockCyberChest(String name, Material materialIn, CreativeTabs tab)
-    {
-        super(name, materialIn, tab);
-        this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT_PROP, TypeInit.VIBRANIUM));
+    
+    public BlockCyberChest(String name, Material materialIn, CreativeTabs tab) {
+		super(materialIn);
+		   
+		        this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT_PROP, TypeInit.VIBRANIUM));
+		        this.setHardness(3.0F);
+		     
+				setUnlocalizedName(name);
+				setRegistryName(name);
+				setCreativeTab(tab);
+		   
+		        
+				BlockInit.BLOCKS.add(this);
+				ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName("chest")); 
+		        
+		        
+	}
 
-    }
 
     @Override
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
@@ -128,15 +145,6 @@ public class BlockCyberChest extends BlockBase
     public TileEntity createTileEntity(World world, IBlockState state)
     {
         return state.getValue(VARIANT_PROP).makeEntity();
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> list)
-    {
-        for (TypeInit type : TypeInit.VALUES)
-        {
-        }
     }
 
     @Override
@@ -288,4 +296,10 @@ public class BlockCyberChest extends BlockBase
             }
         }
     }
+
+	@Override
+	public TileEntity createNewTileEntity(World worldIn, int meta) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

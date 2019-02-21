@@ -1,6 +1,7 @@
 package xyz.skynetcloud.cyberx;
 
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 import net.minecraftforge.fml.relauncher.Side;
@@ -17,7 +18,7 @@ public class CyberTab extends CreativeTabs {
 
 	@Override
 	public ItemStack getTabIconItem() {
-		return new ItemStack(BlockInit.VIBRANIUM_BLOCK);
+		return new ItemStack(Blocks.IRON_BLOCK);
 	}
 
 }

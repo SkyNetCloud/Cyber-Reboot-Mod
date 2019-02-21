@@ -7,6 +7,7 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import xyz.skynetcloud.cyberx.init.TypeInit;
+import xyz.skynetcloud.cyberx.titles.TileEntityChestInit;
 
 public class ContainerCyberChest extends Container
 {
@@ -15,6 +16,8 @@ public class ContainerCyberChest extends Container
     private EntityPlayer player;
 
     private IInventory chest;
+
+	private TileEntityChestInit chestInventory;
 
     public ContainerCyberChest(IInventory playerInventory, IInventory chestInventory, TypeInit type, int xSize, int ySize)
     {
@@ -88,4 +91,10 @@ public class ContainerCyberChest extends Container
     {
         return this.type.rowLength;
     }
+    
+	public TileEntityChestInit getChestInventory()
+	{
+		return this.chestInventory;
+	}
+    
 }

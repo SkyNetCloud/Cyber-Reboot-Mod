@@ -23,6 +23,7 @@ public class WorldGenOres implements IWorldGenerator {
 	
     public WorldGenOres() 
 	{
+    	
       end_vibranium_ore = new WorldGenMinable(BlockInit.END_VIBRANIUM_ORE.getDefaultState(),9, BlockMatcher.forBlock(Blocks.END_STONE));
       vibranium_ore = new WorldGenMinable(BlockInit.VIBRANIUM_ORE.getDefaultState(),9, BlockMatcher.forBlock(Blocks.STONE));
       dark_steel_ore = new WorldGenMinable(BlockInit.DARK_STEEL_ORE.getDefaultState(), 9, BlockMatcher.forBlock(Blocks.STONE));

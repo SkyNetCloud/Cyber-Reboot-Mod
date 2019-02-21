@@ -14,9 +14,7 @@ public class GuiInit extends GuiContainer
     public enum ResourceList
     {
         //@formatter:off
-    	DARKSTEEL(new ResourceLocation("ironchest", "textures/gui/dark_steel_container.png")),
-    	RUBY(new ResourceLocation("ironchest", "textures/gui/ruby_container.png")),
-    	VIBRANIUM(new ResourceLocation("ironchest", "textures/gui/vibranium_container.png"));
+    	VIBRANIUM(new ResourceLocation("cx", "textures/gui/vibranium_container.png"));
         //@formatter:on
         public final ResourceLocation location;
 
@@ -29,8 +27,6 @@ public class GuiInit extends GuiContainer
     public enum GUI
     {
         //@formatter:off
-        DARKSTEEL(184, 202, ResourceList.DARKSTEEL, TypeInit.DARKSTEEL),
-        RUBY(184, 256, ResourceList.RUBY, TypeInit.RUBY),
         VIBRANIUM(238, 256, ResourceList.VIBRANIUM, TypeInit.VIBRANIUM);
         //@formatter:on
 

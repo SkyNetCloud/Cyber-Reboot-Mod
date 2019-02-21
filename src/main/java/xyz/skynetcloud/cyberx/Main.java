@@ -1,20 +1,6 @@
 package xyz.skynetcloud.cyberx;
 
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Blocks;
-import net.minecraftforge.client.model.obj.OBJLoader;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.Mod.EventHandler;
-import net.minecraftforge.fml.common.Mod.Instance;
-import net.minecraftforge.fml.common.SidedProxy;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLServerStartedEvent;
-import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
-import net.minecraftforge.fml.relauncher.Side;
-import xyz.skynetcloud.cyberx.proxy.CommonProxy;
-import xyz.skynetcloud.cyberx.util.handlers.RegistryHandler;
+
 
 import java.io.File;
 
@@ -23,6 +9,23 @@ import org.apache.logging.log4j.Logger;
 import cofh.CoFHCore;
 import cofh.cofhworld.CoFHWorld;
 import cofh.redstoneflux.RedstoneFluxProps;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraftforge.client.model.obj.OBJLoader;
+import net.minecraftforge.common.util.CompoundDataFixer;
+import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraftforge.fml.common.Mod.Instance;
+import net.minecraftforge.fml.common.SidedProxy;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import xyz.skynetcloud.cyberx.proxy.CommonProxy;
+import xyz.skynetcloud.cyberx.titles.TileEntityChestInit;
+import xyz.skynetcloud.cyberx.util.handlers.RegistryHandler;
 
 @Mod(modid = Main.MODID, name = Main.MODNAME, version = Main.VERSION, dependencies = Main.DEPENDENCIES, updateJSON = "https://raw.githubusercontent.com/SkyNetCloud/Cyber-Reboot-Mod/master/update.json" )
 public class Main
@@ -57,11 +60,13 @@ public class Main
     public void init(FMLInitializationEvent event)
     {
        RegistryHandler.initRegistries(event);
+       this.registerDataFixes();
     }
     
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
+    NetworkRegistry.INSTANCE.registerGuiHandler(instance, proxy);
      RegistryHandler.preInitRegistries(event);
      
 		if (event.getSide() == Side.CLIENT ) {
@@ -79,6 +84,13 @@ public class Main
     public void serverinit(FMLServerStartingEvent event)
     {
      RegistryHandler.serverRegistries(event);
+    }
+    
+    public void registerDataFixes()
+    {
+    	CompoundDataFixer dataFixer = FMLCommonHandler.instance().getDataFixer();
+    	
+    	TileEntityChestInit.registerFixesChest(dataFixer);
     }
 
     

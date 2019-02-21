@@ -24,7 +24,7 @@ public class RecipesInit {
 		registerArmorCrafting(ItemInit.VIBRANIUM_CHESTPLATE,ItemInit.VIBRANIUM_BOOTS,ItemInit.VIBRANIUM_HELMET, ItemInit.VIBRANIUM_LEGGINGS,ItemInit.DARK_STEEL_HELMET, ItemInit.DARK_STEEL_CHESTPLATE, ItemInit.DARK_STEEL_LEGGINGS, ItemInit.DARK_STEEL_BOOTS, ItemInit.DARK_STEEL, ItemInit.RUBY_HELMET, ItemInit.RUBY_CHESTPLATE, ItemInit.RUBY_LEGGINGS, ItemInit.RUBY_BOOTS);
 	    registerFurnaceRecipe(ItemInit.RUBY, ItemInit.DARK_STEEL, ItemInit.VIBRANIUM);
 	    registerPulverizerRecipe(ItemInit.DARK_STEEL_DUST, ItemInit.RUBY_DUST, ItemInit.RUBY, ItemInit.DARK_STEEL);
-	    registerBlockCrafting(BlockInit.CLOUD_CHEST, BlockInit.CLOUD_BLOCK ,BlockInit.DARK_STEEL_BLOCK,BlockInit.RUBY_BLOCK,BlockInit.VIBRANIUM_BLOCK);
+	    registerBlockCrafting(/*BlockInit.CLOUD_CHEST,*/BlockInit.CLOUD_BLOCK ,BlockInit.DARK_STEEL_BLOCK,BlockInit.RUBY_BLOCK,BlockInit.VIBRANIUM_BLOCK);
 	    registerToolCrafting(ItemInit.DARK_STEEL_AXE, ItemInit.DARK_STEEL_SWORD, ItemInit.DARK_STEEL_PICKAXE, ItemInit.DARK_STEEL_HOE, ItemInit.DARK_STEEL_SHOVEL, ItemInit.RUBY_AXE, ItemInit.RUBY_PICKAXE, ItemInit.RUBY_SHOVEL, ItemInit.RUBY_SWORD, ItemInit.RUBY_HOE);
 	}
     private static void registerArmorCrafting(Item vibraniumChestplate, Item vibraniumBoots, Item vibraniumHelmet, Item vibraniumLeggings, Item darkSteelHelmet, Item darkSteelChestplate, Item darkSteelLeggings, Item darkSteelBoots, Item darkSteel, Item rubyHelmet, Item rubyChestplate, Item rubyLeggings,Item rubyBoots) {
@@ -60,9 +60,9 @@ public class RecipesInit {
 	}
 
 	//Block Crafting
-	private static void registerBlockCrafting(Block darkSteelBlock, Block rubyBlock,Block vibraniumBlock, Block cloudChest, Block cloudBlock) 
+	private static void registerBlockCrafting(Block darkSteelBlock, Block rubyBlock,Block vibraniumBlock, Block cloudChest) 
 	{
-		GameRegistry.addShapedRecipe(new ResourceLocation("" + cloudChest.getRegistryName()), new ResourceLocation("cx:cloud_chest_block"), new ItemStack(cloudChest), new Object[] {"CCC","CVC","CCC", 'C', BlockInit.CLOUD_BLOCK, 'V', ItemInit.VIBRANIUM });
+		//GameRegistry.addShapedRecipe(new ResourceLocation("" + cloudChest.getRegistryName()), new ResourceLocation("cx:cloud_chest_block"), new ItemStack(cloudChest), new Object[] {"CCC","CVC","CCC", 'C', BlockInit.CLOUD_BLOCK, 'V', ItemInit.VIBRANIUM });
 	    GameRegistry.addShapedRecipe(new ResourceLocation("" + darkSteelBlock.getRegistryName()), new ResourceLocation("cx:dark_steel_block"), new ItemStack(darkSteelBlock), new Object[] {"DDD","DDD","DDD", 'D', ItemInit.DARK_STEEL});
 	    GameRegistry.addShapedRecipe(new ResourceLocation("" + rubyBlock.getRegistryName()), new ResourceLocation("cx:dark_steel_block"), new ItemStack(rubyBlock), new Object[] {"RRR","RRR","RRR", 'R', ItemInit.RUBY});
 	    GameRegistry.addShapedRecipe(new ResourceLocation("" + vibraniumBlock.getRegistryName()), new ResourceLocation("cx:vibranium_block"), new ItemStack(vibraniumBlock), new Object[] {"VVV","VVV","VVV", 'V', ItemInit.VIBRANIUM});

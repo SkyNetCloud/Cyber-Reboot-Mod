@@ -19,7 +19,7 @@ tile.dark_steel_block.name= Dark Steel Block
 tile.dark_steel_ore.name= Dark Steel Ore
 tile.ruby_block.name= Ruby Block
 tile.vibranium_block.name= Vibranium Block
-tile.cloud_chest.name= Cloud Chest
+tile.vibranium_chest.name= Vibranium Chest
 tile.block_dark.name= Darkness Block
 
 //Ores

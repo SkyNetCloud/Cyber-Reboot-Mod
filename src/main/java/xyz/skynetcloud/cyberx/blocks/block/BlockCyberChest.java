@@ -4,7 +4,6 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyEnum;
@@ -32,8 +31,6 @@ import net.minecraft.world.Explosion;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.ILockableContainer;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import xyz.skynetcloud.cyberx.Main;
 import xyz.skynetcloud.cyberx.init.BlockInit;
 import xyz.skynetcloud.cyberx.init.ItemInit;
@@ -113,24 +110,11 @@ public class BlockCyberChest extends BlockContainer
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing heldItem, float side, float hitX, float hitY)
     //@formatter:on
     {
-        TileEntity te = worldIn.getTileEntity(pos);
-
-        if (te == null || !(te instanceof TileEntityChestInit))
-        {
-            return true;
-        }
-
-        if (worldIn.isSideSolid(pos.add(0, 1, 0), EnumFacing.DOWN))
-        {
-            return true;
-        }
-
-        if (worldIn.isRemote)
-        {
-            return true;
-        }
-
-        playerIn.openGui(Main.instance, ((TileEntityChestInit) te).getType().ordinal(), worldIn, pos.getX(), pos.getY(), pos.getZ());
+     
+		if(!worldIn.isRemote)
+		{
+			playerIn.openGui(Main.instance, Main.CHEST_GUI_ID, worldIn, pos.getX(), pos.getY(), pos.getZ());
+		}
 
         return true;
     }
@@ -181,9 +165,6 @@ public class BlockCyberChest extends BlockContainer
         {
         	TileEntityChestInit teic = (TileEntityChestInit) te;
 
-            teic.wasPlaced(placer, stack);
-            teic.setFacing(placer.getHorizontalFacing().getOpposite());
-
             worldIn.notifyBlockUpdate(pos, state, state, 3);
         }
     }
@@ -201,7 +182,7 @@ public class BlockCyberChest extends BlockContainer
 
         if (tileentity != null)
         {
-            tileentity.removeAdornments();
+          
 
             InventoryHelper.dropInventoryItems(worldIn, pos, tileentity);
             worldIn.updateComparatorOutputLevel(pos, this);
@@ -261,7 +242,6 @@ public class BlockCyberChest extends BlockContainer
             {
             	TileEntityChestInit icte = (TileEntityChestInit) tileEntity;
 
-                icte.rotateAround();
             }
 
             return true;
@@ -299,7 +279,7 @@ public class BlockCyberChest extends BlockContainer
 
 	@Override
 	public TileEntity createNewTileEntity(World worldIn, int meta) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return new TileEntityChestInit();
 	}
 }

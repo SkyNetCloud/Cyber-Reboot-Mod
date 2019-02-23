@@ -14,7 +14,7 @@ import xyz.skynetcloud.cyberx.util.ValidatingChestSlot;
 public enum TypeInit implements IStringSerializable
 {   
 	//@formatter:off
-    VIBRANIUM(108, 12, true, "vibranium_chest.png", TileEntityChestInit.class, 184, 256);
+	VIBRANIUM(81, 12, "vibranium_chest.png", 183, 256);
   //@formatter:on
 	
     public static final TypeInit VALUES[] = values();
@@ -25,28 +25,22 @@ public enum TypeInit implements IStringSerializable
 
     public final int rowLength;
 
-    public final boolean tieredChest;
-
     public final ResourceLocation modelTexture;
 
     private String breakTexture;
-
-    public final Class<? extends TileEntityChestInit> clazz;
 
     public final int xSize;
 
     public final int ySize;
 
     //@formatter:off
-    TypeInit(int size, int rowLength, boolean tieredChest, String modelTexture, Class<? extends TileEntityChestInit> clazz, int xSize, int ySize)
+    TypeInit(int size, int rowLength, String modelTexture, int xSize, int ySize)
     //@formatter:on
     {
         this.name = this.name().toLowerCase();
         this.size = size;
         this.rowLength = rowLength;
-        this.tieredChest = tieredChest;
         this.modelTexture = new ResourceLocation("cx", "textures/blocks/" + modelTexture);
-        this.clazz = clazz;
         this.xSize = xSize;
         this.ySize = ySize;
     }

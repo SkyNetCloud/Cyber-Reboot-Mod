@@ -40,8 +40,6 @@ public class Main
 	public static final String SERVER = "xyz.skynetcloud.cyberx.proxy.CommonProxy";
 	
 	public static final int CHEST_GUI_ID = 1;
-	public static final int DARK_STEEL_GUI_ID= 2;
-	public static final int RUBY_CHEST_GUI_ID= 3;
 	public static final int GUI_ENERGY_STORAGE = 5;
 	
 	@Instance
@@ -60,13 +58,11 @@ public class Main
     public void init(FMLInitializationEvent event)
     {
        RegistryHandler.initRegistries(event);
-       this.registerDataFixes();
     }
     
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
-    NetworkRegistry.INSTANCE.registerGuiHandler(instance, proxy);
      RegistryHandler.preInitRegistries(event);
      
 		if (event.getSide() == Side.CLIENT ) {
@@ -85,13 +81,4 @@ public class Main
     {
      RegistryHandler.serverRegistries(event);
     }
-    
-    public void registerDataFixes()
-    {
-    	CompoundDataFixer dataFixer = FMLCommonHandler.instance().getDataFixer();
-    	
-    	TileEntityChestInit.registerFixesChest(dataFixer);
-    }
-
-    
 }

@@ -4,31 +4,40 @@ import java.io.File;
 
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.network.IGuiHandler;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 import xyz.skynetcloud.cyberx.ChatMessage;
+import xyz.skynetcloud.cyberx.Main;
+import xyz.skynetcloud.cyberx.blocks.container.ContainerCyberChest;
+import xyz.skynetcloud.cyberx.blocks.gui.GuiInit;
 import xyz.skynetcloud.cyberx.init.BlockInit;
 import xyz.skynetcloud.cyberx.init.ItemInit;
+import xyz.skynetcloud.cyberx.init.RecipesInit;
 import xyz.skynetcloud.cyberx.init.TypeInit;
+import xyz.skynetcloud.cyberx.titles.TileEntityChestInit;
 import xyz.skynetcloud.cyberx.util.ModConfig;
 import xyz.skynetcloud.cyberx.util.interfaces.IHasModel;
-import xyz.skynetcloud.cyberx.util.other.RenderChests.RenderingCloudChest;
 
 @EventBusSubscriber
 public class RegistryHandler 
 {
-	
-	 public static Configuration config;
+
+	public static Configuration config;
 	
 	@SubscribeEvent
 	public static void registerItems(RegistryEvent.Register<Item> event)
@@ -76,23 +85,16 @@ public class RegistryHandler
 		File directory = event.getModConfigurationDirectory();
         config = new Configuration(new File(directory.getPath(), "cyberReboot.cfg"));
         ModConfig.readConfig();
-        
+        NetworkRegistry.INSTANCE.registerGuiHandler(Main.instance, new GuiHandler());
         
 		
 		//GameRegistry.registerWorldGenerator(new WorldGenOres(), 0);
-		
-		for (TypeInit type : TypeInit.values())
-		{
-			if (type.clazz != null)
-				ClientRegistry.bindTileEntitySpecialRenderer(type.clazz, new RenderingCloudChest());
-		}
-		
 		
 	}
 	
 	public static void initRegistries(FMLInitializationEvent event)
 	{
-	     //RecipesInit.registerCrafting();
+	     RecipesInit.registerCrafting();
 	     
 	     MinecraftForge.EVENT_BUS.register(new ChatMessage());
 	     
@@ -108,5 +110,28 @@ public class RegistryHandler
 	
 	public static void serverRegistries(FMLServerStartingEvent event)
 	{
+	}
+	public static class GuiHandler implements IGuiHandler
+	{
+		
+		
+		@Override
+		public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) 
+		
+		{
+			TileEntity te = world.getTileEntity(new BlockPos(x, y, z));
+			
+			if(ID == Main.CHEST_GUI_ID) return new ContainerCyberChest(player.inventory, (TileEntityChestInit)world.getTileEntity(new BlockPos(x,y,z)), player);
+			return null;
+		}
+		
+		@Override
+		public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) 
+		{
+			if(ID == Main.CHEST_GUI_ID) return new GuiInit(player.inventory, (TileEntityChestInit)world.getTileEntity(new BlockPos(x,y,z)), player);
+		
+			return null;
+		}
+		 
 	}
 }
